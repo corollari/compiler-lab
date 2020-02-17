@@ -1,0 +1,4 @@
+gen
+bin
+src/test/*.class
+src/frontend/*.class
