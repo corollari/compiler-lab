@@ -78,6 +78,23 @@ public class LexerTests {
 	}
 
 	@Test
+	public void testEmptyString() {
+		runtest("\"\"", 
+				new Token(STRING_LITERAL, 0, 0, ""),
+				new Token(EOF, 0, 2, ""));
+	}
+
+	@Test
+	public void testIdentifiersAndKWs() {
+		runtest("Boolean \t boolean if booleanif", 
+				new Token(ID, 0, 0, "Boolean"),
+				new Token(BOOLEAN, 0, 10, "boolean"),
+				new Token(IF, 0, 18, "if"),
+				new Token(ID, 0, 21, "booleanif"),
+				new Token(EOF, 0, 30, ""));
+	}
+
+	@Test
 	public void testIntLiteral() {
 		runtest("0000111000",
 				new Token(INT_LITERAL, 0, 0, "0000111000"),
