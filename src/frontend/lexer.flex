@@ -89,7 +89,7 @@ Alpha = [a-zA-Z_]
 ";"								{return token(SEMICOLON);}
 {Alpha}({Alpha}|{Digit}|"_")*		{return token(getIdentifier(yytext()));}
 "\""[^\n\"]*"\""		{return token(STRING_LITERAL, yytext());}
-{Digit}*						{return token(INT_LITERAL);}
+{Digit}+						{return token(INT_LITERAL);}
 {WhiteSpace}					{}
 
 /* You don't need to change anything below this line. */

@@ -77,4 +77,23 @@ public class LexerTests {
 				new Token(EOF, 0, 5, ""));
 	}
 
+	@Test
+	public void testIntLiteral() {
+		runtest("0000111000",
+				new Token(INT_LITERAL, 0, 0, "0000111000"),
+				new Token(EOF, 0, 10, ""));
+	}
+
+	@Test
+	public void testWhole() {
+		runtest("while i < 10 return i",
+				new Token(WHILE, 0, 0, "while"),
+				new Token(ID, 0, 6, "i"),
+				new Token(LT, 0, 8, "<"),
+				new Token(INT_LITERAL, 0, 10, "10"),
+				new Token(RETURN, 0, 13, "return"),
+				new Token(ID, 0, 20, "i"),
+				new Token(EOF, 0, 21, ""));
+	}
+
 }
