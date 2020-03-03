@@ -95,7 +95,6 @@ WhileStatement = WHILE LPAREN Expression RPAREN Statement;
 
 BreakStatement = BREAK SEMICOLON;
 
-/* PROBABLY NOT RIGHT, EXPRESSION IS OPTIONAL */
 ReturnStatement = RETURN ReturnStatement2 SEMICOLON;
 
 ReturnStatement2 = Expression
