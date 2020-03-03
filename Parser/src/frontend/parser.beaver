@@ -23,7 +23,7 @@
 %goal Module;
 
 // temporary declaration, you can remove this once you have written all other rules
-%goal Dummy;
+//%goal Dummy;
 
 /* TODO: Flesh out the rule for Module, and add rules for other nonterminals. Here is an example
          of a rule you may want to add:
@@ -47,7 +47,7 @@ Declarations = Declaration Declarations
 	
 Declaration = FunctionDeclaration | FieldDeclaration | TypeDeclaration ;
 
-FunctionDeclaration = AccessibilitySpecifier TypeName ID LPAREN ParameterList RPAREN LCURLY Statements RCURLY ;
+FunctionDeclaration = AccessibilitySpecifier TypeName ID LPAREN ParameterList RPAREN LCURLY StatementsList RCURLY ;
 
 FieldDeclaration = AccessibilitySpecifier TypeName ID SEMICOLON ;
 
@@ -63,7 +63,7 @@ PrimitiveType = VOID | BOOLEAN | INT;
 
 
 /* STILL TO DO */
-ArrayType = ;
+ArrayType = PrimitiveType LBRACKET RBRACKET;
 
 ParameterList = ParameterList2
 	|
@@ -84,6 +84,8 @@ StatementsList = Statement StatementsList
 LocalVariableDeclaration = TypeName ID SEMICOLON;
 
 BlockStatements = LCURLY StatementsList RCURLY;
+
+IfStatement = IfStatement1 IfStatement2;
 
 IfStatement1 = IF LPAREN Expression RPAREN Statement IfStatement2;
 
@@ -107,7 +109,7 @@ ExpessionStatement = Expression SEMICOLON;
 Expression = Assignment 
 	| RightHandSideExpression;
 
-Assignment = LeftHandsideExpression EQL Expression;
+Assignment = LeftHandSideExpression EQL Expression;
 
 LeftHandSideExpression = ID | ArrayAccess;
 
@@ -141,7 +143,7 @@ PrimaryExpression = LeftHandSideExpression
 	| FunctionCall
 	| ArrayExpression
 	| STRING_LITERAL
-	| INTEGER_LITERAL
+	| INT_LITERAL
 	| TRUE
 	| FALSE
 	| ParenthesisedExpression
@@ -163,5 +165,5 @@ ParenthesisedExpression = LPAREN Expression RPAREN;
 /**/
 
 /* Dummy rule to make the lexer compile. Remove this once you have written all other rules. */	  
-Dummy = MODULE INT VOID IF ELSE WHILE RETURN BREAK BOOLEAN PUBLIC TRUE FALSE INT_LITERAL STRING_LITERAL ID TYPE IMPORT
-           PLUS MINUS TIMES DIV MOD EQEQ NEQ LEQ GEQ LT GT LBRACKET RPAREN COMMA RCURLY LCURLY SEMICOLON RBRACKET LPAREN EQL;
+//Dummy = MODULE INT VOID IF ELSE WHILE RETURN BREAK BOOLEAN PUBLIC TRUE FALSE INT_LITERAL STRING_LITERAL ID TYPE IMPORT
+//           PLUS MINUS TIMES DIV MOD EQEQ NEQ LEQ GEQ LT GT LBRACKET RPAREN COMMA RCURLY LCURLY SEMICOLON RBRACKET LPAREN EQL;
