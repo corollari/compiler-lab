@@ -71,6 +71,13 @@ public class LexerTests {
 	}
 
 	@Test
+	public void testInvalidString() {
+		runtest("\"\n\"", 
+				(Token)null,
+				new Token(EOF, 0, 4, ""));
+	}
+
+	@Test
 	public void testIdentifier() {
 		runtest("abc_1", 
 				new Token(ID, 0, 0, "abc_1"),
