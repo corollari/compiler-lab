@@ -23,7 +23,7 @@
 %goal Module;
 
 // temporary declaration, you can remove this once you have written all other rules
-//%goal Dummy;
+%goal Dummy;
 
 /* TODO: Flesh out the rule for Module, and add rules for other nonterminals. Here is an example
          of a rule you may want to add:
@@ -85,9 +85,7 @@ LocalVariableDeclaration = TypeName ID SEMICOLON;
 
 BlockStatements = LCURLY StatementsList RCURLY;
 
-IfStatement = IfStatement1 IfStatement2;
-
-IfStatement1 = IF LPAREN Expression RPAREN Statement IfStatement2;
+IfStatement = IF LPAREN Expression RPAREN Statement IfStatement2;
 
 IfStatement2 = ELSE Statement
 	|
@@ -165,5 +163,5 @@ ParenthesisedExpression = LPAREN Expression RPAREN;
 /**/
 
 /* Dummy rule to make the lexer compile. Remove this once you have written all other rules. */	  
-//Dummy = MODULE INT VOID IF ELSE WHILE RETURN BREAK BOOLEAN PUBLIC TRUE FALSE INT_LITERAL STRING_LITERAL ID TYPE IMPORT
-//           PLUS MINUS TIMES DIV MOD EQEQ NEQ LEQ GEQ LT GT LBRACKET RPAREN COMMA RCURLY LCURLY SEMICOLON RBRACKET LPAREN EQL;
+Dummy = MODULE INT VOID IF ELSE WHILE RETURN BREAK BOOLEAN PUBLIC TRUE FALSE INT_LITERAL STRING_LITERAL ID TYPE IMPORT
+           PLUS MINUS TIMES DIV MOD EQEQ NEQ LEQ GEQ LT GT LBRACKET RPAREN COMMA RCURLY LCURLY SEMICOLON RBRACKET LPAREN EQL;
