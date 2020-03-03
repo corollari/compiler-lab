@@ -36,5 +36,8 @@ public class ParserTests {
 	@Test
 	public void testEmptyModule() {
 		runtest("module Test { }");
+		runtest("module Test {int[] a;}");
+		runtest("module Test {int a(){return;}}");
+		runtest("module Test {int a(){return 1;}}");
 	}
 }
